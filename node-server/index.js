@@ -1,6 +1,9 @@
 const express = require('express')
 const port = 3002
 const cors = require('cors');
+const { default: axios } = require('axios');
+const { response } = require('express');
+
 
 
 const post1 = {
@@ -53,3 +56,4 @@ app.post('/post/:postId/comment', (req, res) => {
 app.listen(port, () => {
   console.log(`Block Server listening at http://localhost:${port}`)
 })
+

@@ -1,16 +1,28 @@
 import {useState} from "react";
+import axios from "axios";
+
 
 const NewPost = () => {
   const [id, setId] = useState();
   const [title, setTitle] = useState();
   const [body, setBody] = useState();
 
+
+  
+
   const onSubmit = () => {
     console.log({
       id,
       title,
-      body
+      body,
+      
+    });
+
+    axios.post('http://localhost:3002/post', {"id":id,"title":title,"body":body})
+    .then(res=>{
+      console.log(res.data);
     })
+    .catch((error)=>console.log(error));
   }
 
   return <div>
